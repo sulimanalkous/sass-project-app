@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'sendgrid-ruby'
 gem 'devise'
 gem 'milia'
+gem 'bootstrap', '~> 4.1', '>= 4.1.1'
+gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootstrap4'
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

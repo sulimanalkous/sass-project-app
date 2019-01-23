@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module SassProjectApp
   class Application < Rails::Application
 
+    Rails.configuration.application_name = 'Sass Suliman Project'
     # uncomment to ensure a common layout for devise forms
     #   config.to_prepare do   # Devise
     #     Devise::SessionsController.layout "sign"
