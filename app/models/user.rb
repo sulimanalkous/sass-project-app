@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   acts_as_universal_and_determines_account
 
-  has_on :member, :dependent => :destroy
+  has_one :member, :dependent => :destroy
 end
