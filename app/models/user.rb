@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
 
-  act_as_universal_and_determines_account
+  acts_as_universal_and_determines_account
 
   has_on :member, :dependent => :destroy
 end
