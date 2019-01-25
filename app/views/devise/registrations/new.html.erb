@@ -17,6 +17,19 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: 'Confirm Password' %>
       </div>
 
+      <%= fields_for ( :tenant ) do |w| %>
+        <div class="form-group col p-1">
+          <%= w.label :name, 'Organization' %>
+          <span class="description">(Unique name for your group or organization for the new account)</span>
+          <%= w.text_field :name, required: true, class: "form-control" %>
+        </div>
+
+        <div class="form-group col pr-0">
+          <%= w.label :plan, 'Organization' %>
+          <%= w.select :plan, options_for_select(Plan.options, params[:plan]), {}, require: true, class: "form-control" %>
+        </div>
+      <% end %>
+
       <div class="form-group">
         <%= f.submit "Sign up", class: "btn btn-primary btn-block btn-lg" %>
       </div>

@@ -8,6 +8,12 @@
 
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+        <% if current_user %>
+          <li>
+            <%= links_to "<i class='fa fa-users'></i> Add Members".html_self,
+                new_member_path, class: 'navbar-link btn btn-primary' %>
+          </li>
+        <% end %>
       </ul>
 
       <ul class="navbar-nav">
