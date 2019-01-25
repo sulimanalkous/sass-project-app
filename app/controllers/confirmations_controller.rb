@@ -38,15 +38,20 @@ class ConfirmationsController < Milia::ConfirmationsController
        @confirmable.skip_confirm_change_password
 
       log_action( "devise pass-thru" )
-      self.resource = resource_class.confirm_by_token(params[:configmation_token])
-      yield resource if block_given?
 
-      if resource.errors.empty?
-        set_flash_message(:notice, :configmed) if is_flashing_format?
-      end
+      super  # this will redirect
       if @confirmable.skip_confirm_change_password
-        sign_in_tenanted_and_redirect(resource)
+        sign_in_tenanted(resource)
       end
+      #self.resource = resource_class.confirm_by_token(params[:configmation_token])
+      #yield resource if block_given?
+
+      #if resource.errors.empty?
+        #set_flash_message(:notice, :confirmed) if is_flashing_format?
+      #end
+      #if @confirmable.skip_confirm_change_password
+        #sign_in_tenanted_and_redirect(resource)
+      #end
     else
       log_action( "password set form" )
       flash[:notice] = "Please choose a password and confirm it"
