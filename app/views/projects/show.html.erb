@@ -1,0 +1,24 @@
+<div class="jumptron">
+  <div class="container">
+    <h2 class="display-4"><%= @project.title %></h2>
+    <p class="leab">Orgnaization - <%= tenant_name @project.tenant_id %></p>
+    <hr class="my-4">
+    <p>
+      <strong>Details:</strong>
+      <%= @project.details %>
+    </p>
+
+    <p>
+      <strong>Expoected completion date:</strong>
+      <%= @project.expoected_completion_date %>
+    </p>
+
+    <%= link_to 'Edit', edit_tenant_project_path(@project.tenant, @project), class: 'btn btn-secondary' %>
+    <% link_to 'Destroy', tenant_project_path([@project.tenant, @project]),
+                                               :confirm => 'Are you sure?',
+                                               method: :delete,
+                                               :class => 'btn btn-danger' %>
+    <%= link_to 'Back to Organization Home', root_path, class: 'btn btn-secondary' %>
+  </div>
+</div>
+<br class="my-5">

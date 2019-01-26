@@ -1,5 +1,6 @@
 <% if current_user %>
 <h3>Organization: <%= @tenant.name %>
+<%= render 'projects/list' %>
 </h3>
 <% else %>
 <div class="jumbotron">

@@ -11,14 +11,14 @@
         <% if current_user %>
           <li>
             <%= link_to "Add Members",
-                new_member_path, class: 'navbar-link btn btn-primary' %>
+                new_member_path, class: 'btn btn-primary' %>
           </li>
         <% end %>
       </ul>
 
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %></li>
+          <li class=""><%= link_to 'Logout', destroy_user_session_path, :method => :delete, class: 'btn btn-button-danger' %></li>
         <% else %>
           <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
         <% end %>

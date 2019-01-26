@@ -1,0 +1,37 @@
+<%= form_for ([@project.tenant, @project]) do |form| %>
+  <% if @project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+      <% @project.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :details %>
+    <%= form.text_field :details %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expoected_completion_date %>
+    <%= form.date_select :expoected_completion_date %>
+  </div>
+
+  <br />
+  <%= form.hidden_field :tenant_id, value: params[:tenant_id] %>
+
+  <div class="actions">
+    <%= form.submit nil, class: 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+        root_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

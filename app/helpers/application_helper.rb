@@ -7,4 +7,8 @@ module ApplicationHelper
       notice: "alert-info"
     }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
+
+  def tenant_name(tenant_id)
+    Tenant.find(tenant_id).name
+  end
 end
